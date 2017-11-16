@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="alasql.min.js"></script>
+  </head>
+  <body>
+    <input type='text' id='input' placeholder='Elements'/>
+    <button onclick="solve()" id='solve'>Calculate</button>
+    <script>
+    alasql("CREATE TABLE elements(`Number` int, `Symbol` varchar(3), `Element` varchar(13), `Mass` varchar(9));");
+    alasql("INSERT INTO elements (`Number`, `Symbol`, `Element`, `Mass`) VALUES (1, 'H', 'Hydrogen', '1.00797'),(2, 'He', 'Helium', '4.00260'),(3, 'Li', 'Lithium', '6.941'), (4, 'Be', 'Beryllium', '9.01218'), (5, 'B', 'Boron', '10.81'), (6, 'C', 'Carbon', '12.011'), (7, 'N', 'Nitrogen', '14.0067'), (8, 'O', 'Oxygen', '15.9994'), (9, 'F', 'Fluorine', '18.998403'), (10, 'Ne', 'Neon', '20.179'), (11, 'Na', 'Sodium', '22.98977'), (12, 'Mg', 'Magnesium', '24.305'), (13, 'Al', 'Aluminum', '26.98154'), (14, 'Si', 'Silicon', '28.0855'), (15, 'P', 'Phosphorus', '30.97376'), (16, 'S', 'Sulfur', '32.06'), (17, 'Cl', 'Chlorine', '35.453'), (19, 'K', 'Potassium', '39.0983'), (18, 'Ar', 'Argon', '39.948'), (20, 'Ca', 'Calcium', '40.08'), (21, 'Sc', 'Scandium', '44.9559'), (22, 'Ti', 'Titanium', '47.90'), (23, 'V', 'Vanadium', '50.9415'), (24, 'Cr', 'Chromium', '51.996'), (25, 'Mn', 'Manganese', '54.9380'), (26, 'Fe', 'Iron', '55.847'), (28, 'Ni', 'Nickel', '58.70'), (27, 'Co', 'Cobalt', '58.9332'), (29, 'Cu', 'Copper', '63.546'), (30, 'Zn', 'Zinc', '65.38'), (31, 'Ga', 'Gallium', '69.72'), (32, 'Ge', 'Germanium', '72.59'), (33, 'As', 'Arsenic', '74.9216'), (34, 'Se', 'Selenium', '78.96'), (35, 'Br', 'Bromine', '79.904'), (36, 'Kr', 'Krypton', '83.80'), (37, 'Rb', 'Rubidium', '85.4678'), (38, 'Sr', 'Strontium', '87.62'), (39, 'Y', 'Yttrium', '88.9059'), (40, 'Zr', 'Zirconium', '91.22'), (41, 'Nb', 'Niobium', '92.9064'), (42, 'Mo', 'Molybdenum', '95.94'), (43, 'Tc', 'Technetium', '(98)'), (44, 'Ru', 'Ruthenium', '101.07'), (45, 'Rh', 'Rhodium', '102.9055'), (46, 'Pd', 'Palladium', '106.4'), (47, 'Ag', 'Silver', '107.868'), (48, 'Cd', 'Cadmium', '112.41'), (49, 'In', 'Indium', '114.82'), (50, 'Sn', 'Tin', '118.69'), (51, 'Sb', 'Antimony', '121.75'), (53, 'I', 'Iodine', '126.9045'), (52, 'Te', 'Tellurium', '127.60'), (54, 'Xe', 'Xenon', '131.30'), (55, 'Cs', 'Cesium', '132.9054'), (56, 'Ba', 'Barium', '137.33'), (57, 'La', 'Lanthanum', '138.9055'), (58, 'Ce', 'Cerium', '140.12'), (59, 'Pr', 'Praseodymium', '140.9077'), (60, 'Nd', 'Neodymium', '144.24'), (61, 'Pm', 'Promethium', '(145)'), (62, 'Sm', 'Samarium', '150.4'), (63, 'Eu', 'Europium', '151.96'), (64, 'Gd', 'Gadolinium', '157.25'), (65, 'Tb', 'Terbium', '158.9254'), (66, 'Dy', 'Dysprosium', '162.50'), (67, 'Ho', 'Holmium', '164.9304'), (68, 'Er', 'Erbium', '167.26'), (69, 'Tm', 'Thulium', '168.9342'), (70, 'Yb', 'Ytterbium', '173.04'), (71, 'Lu', 'Lutetium', '174.967'), (72, 'Hf', 'Hafnium', '178.49'), (73, 'Ta', 'Tantalum', '180.9479'), (74, 'W', 'Tungsten', '183.85'), (75, 'Re', 'Rhenium', '186.207'), (76, 'Os', 'Osmium', '190.2'), (77, 'Ir', 'Iridium', '192.22'), (78, 'Pt', 'Platinum', '195.09'), (79, 'Au', 'Gold', '196.9665'), (80, 'Hg', 'Mercury', '200.59'), (81, 'Tl', 'Thallium', '204.37'), (82, 'Pb', 'Lead', '207.2'), (83, 'Bi', 'Bismuth', '208.9804'), (84, 'Po', 'Polonium', '(209)'), (85, 'At', 'Astatine', '(210)'), (86, 'Rn', 'Radon', '(222)'), (87, 'Fr', 'Francium', '(223)'), (88, 'Ra', 'Radium', '226.0254'), (89, 'Ac', 'Actinium', '227.0278'), (91, 'Pa', 'Protactinium', '231.0359'), (90, 'Th', 'Thorium', '232.0381'), (93, 'Np', 'Neptunium', '237.0482'), (92, 'U', 'Uranium', '238.029'), (94, 'Pu', 'Plutonium', '(242)'), (95, 'Am', 'Americium', '(243)'), (97, 'Bk', 'Berkelium', '(247)'), (96, 'Cm', 'Curium', '(247)'), (102, 'No', 'Nobelium', '(250)'), (98, 'Cf', 'Californium', '(251)'), (99, 'Es', 'Einsteinium', '(252)'), (108, 'Hs', 'Hassium', '(255)'), (109, 'Mt', 'Meitnerium', '(256)'), (100, 'Fm', 'Fermium', '(257)'), (101, 'Md', 'Mendelevium', '(258)'), (103, 'Lr', 'Lawrencium', '(260)'), (104, 'Rf', 'Rutherfordium', '(261)'), (107, 'Bh', 'Bohrium', '(262)'), (105, 'Db', 'Dubnium', '(262)'), (106, 'Sg', 'Seaborgium', '(263)'), (110, 'Uun', 'Ununnilium', '(269)'), (111, 'Uuu', 'Unununium', '(272)'), (112, 'Uub', 'Ununbiium', '(277)');");
+
+    function solve(){
+    var solvableThing = document.getElementById('input').value;
+    halfSolvedElements = solvableThing.split(/(?=[A-Z]|\d)/);
+    solvedElements = halfSolvedElements.filter(function(entry) { return /(\D)/.test(entry)})
+    halfSolvedSubArray = solvableThing.split(/(\D[a-z]?\d+)/);
+    solvedSubArray = halfSolvedSubArray.filter(function(entry) { return entry.trim() != ''; });
+    halfSolvedCoArray = solvableThing.split(/(^\d+)/);
+    solvedCoArray = halfSolvedCoArray.filter(function(entry) { return entry.trim() != ''; });
+    console.log(solvedElements);
+    console.log(solvedSubArray);
+    console.log(solvedCoArray);
+    elementAmounts = {};
+    for(var i=0;i<solvedElements.length;i++){
+      elementAmounts[solvedElements[i]] = 1;
+      // console.log(Math.round((alasql('SELECT Mass FROM elements WHERE Symbol LIKE "'+solvedElements[i]+'"')[0].Mass)*100)/100);
+    }
+    withSub = solvedSubArray.filter(function(entry) { return /(^\D+\d+)/.test(entry)});
+    console.log(withSub);
+    for(var i=0;i<withSub.length;i++){
+      element = withSub[i].match(/(\D+)/)[0];
+      amount = withSub[i].match(/(\d+)/)[0];
+      elementAmounts[element] *=amount;
+    }
+    if(solvedCoArray.length > 1){
+      for(var i=0;i<solvedElements.length;i++){
+        elementAmounts[solvedElements[i]] *=solvedCoArray[0];
+      }
+    }
+    console.log(elementAmounts)
+    var sum = 0
+    for(var i=0;i<Object.keys(elementAmounts).length;i++){
+      sum += (Math.round(alasql('SELECT Mass FROM elements WHERE Symbol LIKE "' + solvedElements[i] + '"')[0].Mass*100)/100) * elementAmounts[solvedElements[i]];
+    }
+    amountForOneTotal = {};
+    for(var i=0;i<solvedElements.length;i++){
+      amountForOneTotal[solvedElements[i]] = (Math.round(alasql('SELECT Mass FROM elements WHERE Symbol LIKE "' + solvedElements[i] + '"')[0].Mass*100)/100) * elementAmounts[solvedElements[i]];
+    }
+    var totalPercentSum = 0;
+    for(var i=0;i<solvedElements.length;i++){
+      console.log(solvedElements[i] + " ("+alasql('SELECT Element FROM elements WHERE Symbol LIKE "' + solvedElements[i] + '"')[0].Element+") total: " + amountForOneTotal[solvedElements[i]] + " grams, percent: " +Math.round(amountForOneTotal[solvedElements[i]]/sum*10000)/100 + "%");
+      totalPercentSum += Math.round(amountForOneTotal[solvedElements[i]]/sum*10000)/100;
+    }
+    console.log("Overall Total: "+sum+" grams, percent: " + totalPercentSum + "%");
+  }
+    </script>
+  </body>
+</html>
