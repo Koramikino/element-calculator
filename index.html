@@ -65,7 +65,7 @@
 
     for(var i=0;i<solvedElements.length;i++){
       var item = document.createElement('li');
-      var node = document.createTextNode(solvedElements[i] + " ("+alasql('SELECT Element FROM elements WHERE Symbol LIKE "' + solvedElements[i] + '"')[0].Element+") total: " + amountForOneTotal[solvedElements[i]] + " grams, percent: " +Math.round(amountForOneTotal[solvedElements[i]]/sum*10000)/100 + "%");
+      var node = document.createTextNode(solvedElements[i] + " ("+alasql('SELECT Element FROM elements WHERE Symbol LIKE "' + solvedElements[i] + '"')[0].Element+") total: " + Math.round(amountForOneTotal[solvedElements[i]]*100)/100 + " grams, percent: " +Math.round(amountForOneTotal[solvedElements[i]]/sum*10000)/100 + "%");
       item.appendChild(node);
       var list = document.getElementById('elements-list');
       list.insertBefore(item, list.childNodes[0]);
